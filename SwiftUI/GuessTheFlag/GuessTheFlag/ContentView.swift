@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     //countries array contains the names of all countries whose flag images we have. Annotation @State is necessary for two way binding.
-    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
+    @State private var countries = ["France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Estonia", "Russia", "Spain", "UK", "US"].shuffled()
     //This var will choose a random anwer for 3 flags displayed.
     @State private var correctAnswer = Int.random(in: 0...2)
     //This var is to toggle the Alert to display or not. Default is false
@@ -51,14 +51,18 @@ struct ContentView: View {
                             .shadow(color: .black, radius: 2)
                     }
                 }
+                VStack {
+                    Text("Player Score: \(playerScore)")
+                }
             }
+            
         }
-        //Alert code is after the parent ZStack but within body.
-        .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Your score is \(playerScore)"), dismissButton: .default(Text("Continue")) {
-                //Method to be called when Continue button within Alert is pressed.
-                self.askQuestion()
-                })
+            //Alert code is after the parent ZStack but within body.
+            .alert(isPresented: $showingScore) {
+                Alert(title: Text(scoreTitle), message: Text("Your score is \(playerScore)"), dismissButton: .default(Text("Continue")) {
+                    //Method to be called when Continue button within Alert is pressed.
+                    self.askQuestion()
+                    })
         }
     }
     
@@ -70,7 +74,7 @@ struct ContentView: View {
             playerScore += 1
         } else {
             //Set values when wrong flag image clicked.
-            scoreTitle = "Wrong"
+            scoreTitle = "Wrong! Thats the flag of \(countries[number])"
             playerScore -= 1
         }
         //This will call the .alert code
