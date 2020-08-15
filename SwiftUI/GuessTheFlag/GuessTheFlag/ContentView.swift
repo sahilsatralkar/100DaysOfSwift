@@ -42,13 +42,9 @@ struct ContentView: View {
                         //Action to perform when a button is clicked.
                         self.flagTapped(number)
                     }) {
-                        //The buttons will be randon 3 images from Assets.
-                        Image(self.countries[number])
-                            //In built SwiftUI styling used for this Image.
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: .black, radius: 2)
+                        //The buttons will be random 3 images from Assets.
+                        FlagImage(image: self.countries[number])
+                        
                     }
                 }
                 VStack {
@@ -87,6 +83,19 @@ struct ContentView: View {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         
+    }
+}
+
+// This will make a new View common to all the 3 buttons and their modifier
+struct FlagImage : View {
+    var image: String
+    
+    var body: some View {
+        Image(image)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+            .shadow(color: .black, radius: 2)
     }
 }
 

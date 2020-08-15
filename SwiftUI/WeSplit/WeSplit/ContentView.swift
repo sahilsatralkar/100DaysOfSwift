@@ -15,6 +15,8 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 2
     
+    @State private var toggleColor = false
+    
     //Array to show the possible tip percent.
     let tipPercentages = ["10", "15", "20", "25", "0"]
     
@@ -30,7 +32,7 @@ struct ContentView: View {
         let tipValue = orderAmount / 100 * tipSelection
         let grandTotal = orderAmount + tipValue
         let amountPerPerson = grandTotal / peopleCount
-
+        
         return amountPerPerson
         
     }
@@ -78,6 +80,8 @@ struct ContentView: View {
                 Section(header: Text("Amount per person")) {
                     //specifier will limit the double value to 2 decimal places
                     Text("$\(totalPerPerson, specifier: "%.2f")")
+                        //terniary operator to change font red if 0 tip selected.
+                        .foregroundColor(tipPercentage == 4 ? .red : .none)
                 }
             }
             //code to display the navigation bar text
