@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OIm-PS-pHL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDP-dm-7Sc">
+                                <rect key="frame" x="107" y="128" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yDP-dm-7Sc" secondAttribute="height" multiplier="2:1" id="BC4-Ry-16M"/>
+                                </constraints>
+                                <state key="normal" image="estonia"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4s-1b-0Oa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BD7-Xw-K8U">
+                                <rect key="frame" x="107" y="268" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BD7-Xw-K8U" secondAttribute="height" multiplier="2:1" id="8us-ia-trb"/>
+                                </constraints>
+                                <state key="normal" image="france"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ECf-gU-t8H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aI-Cg-nof">
+                                <rect key="frame" x="108" y="408" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3aI-Cg-nof" secondAttribute="height" multiplier="2:1" id="G3o-Dm-1FQ"/>
+                                </constraints>
+                                <state key="normal" image="germany"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X1X-zt-aLm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3aI-Cg-nof" firstAttribute="top" secondItem="BD7-Xw-K8U" secondAttribute="bottom" constant="40" id="3kV-AJ-cPP"/>
+                            <constraint firstItem="3aI-Cg-nof" firstAttribute="height" secondItem="BD7-Xw-K8U" secondAttribute="height" id="9oy-cU-5ir"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3aI-Cg-nof" secondAttribute="bottom" constant="20" id="D8t-Tz-qd7"/>
+                            <constraint firstItem="yDP-dm-7Sc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U8R-Zb-CYy"/>
+                            <constraint firstItem="BD7-Xw-K8U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YNv-84-14x"/>
+                            <constraint firstItem="yDP-dm-7Sc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="cdy-H7-2dr"/>
+                            <constraint firstItem="BD7-Xw-K8U" firstAttribute="height" secondItem="yDP-dm-7Sc" secondAttribute="height" id="hAa-xk-d1M"/>
+                            <constraint firstItem="BD7-Xw-K8U" firstAttribute="top" secondItem="yDP-dm-7Sc" secondAttribute="bottom" constant="40" id="hb7-GK-7qf"/>
+                            <constraint firstItem="3aI-Cg-nof" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pKM-Oz-1GV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yx2-oH-ler"/>
+                    <connections>
+                        <outlet property="button1" destination="yDP-dm-7Sc" id="ntZ-9n-eBc"/>
+                        <outlet property="button2" destination="BD7-Xw-K8U" id="PDL-7q-PLv"/>
+                        <outlet property="button3" destination="3aI-Cg-nof" id="ggb-Hw-EEK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050.7246376811595" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xTg-v1-0ux">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OIm-PS-pHL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QRl-kF-4Zj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="yOL-BD-XJF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uxo-Uo-Dtc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="estonia" width="200" height="100"/>
+        <image name="france" width="200" height="100"/>
+        <image name="germany" width="200" height="100"/>
+    </resources>
+</document>
