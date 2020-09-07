@@ -11,9 +11,8 @@ import UIKit
 class ViewController: UITableViewController {
     //Arrays are declared to store the petitions.
     var petitions = [Petition]()
-    var searchPetitions = [Petition]()
     var tempPetitions = [Petition]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,12 +20,11 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(dataAlert))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchResults))
         
-        
         let urlString: String
-
+        
         //Both the tab bar controllers will call different urls.
         if navigationController?.tabBarItem.tag == 0 {
-             
+            
             urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
             
         } else {
@@ -43,6 +41,9 @@ class ViewController: UITableViewController {
                 parse(json: data)
             }
         }
+        //Perform tableview.reloadData on main thread.
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        
     }
     
     //Selector function for right navigation bar button. This will display a simple alert to show the source of the API.
@@ -65,6 +66,7 @@ class ViewController: UITableViewController {
             [weak self, weak ac] action in
             guard let searchText = ac?.textFields?[0].text else { return }
             self!.searchInPetitions(searchText)
+            
         }
         
         ac.addAction(searchAction)
@@ -73,15 +75,30 @@ class ViewController: UITableViewController {
     
     //Function to search and filter the Petitions.
     func searchInPetitions(_ searchText : String) {
+        //Search tasks are send to background thread
+        performSelector(inBackground: #selector(searchInPetitionsBackground), with: searchText)
+        
+    }
+    
+    //Function to filter petitions in background.
+    @objc func searchInPetitionsBackground(_ searchText : String) {
+        
+        tempPetitions.removeAll()
         for petition in petitions {
             //Check the entered text by user within the body of petition. Checks done on lowercased strings.
             if petition.body.lowercased().contains(searchText.lowercased()) {
                 tempPetitions.append(petition)
             }
         }
+        
         //Reassign the new petitions to original petitions array and the reload table data so that same functions will be reused as is.
+        petitions.removeAll()
         petitions = tempPetitions
-        tableView.reloadData()
+        
+        //tableview.reloadData in Main thread
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     //Function will parse the Data received from URL
@@ -121,7 +138,6 @@ class ViewController: UITableViewController {
         //Push vc in navigationController.
         navigationController?.pushViewController(vc, animated: true)
     }
-
-
+    
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     
+    //Variable declaration
     var fileNameArray = [String]()
     var position = Int()
     var rowCount = 0
@@ -19,6 +20,18 @@ class ViewController: UITableViewController {
         
         // title is the keyword to assign title label text in the Navigation bar at top
         title = "Storm viewer"
+        
+        //Fetching images task is sent to background thread.
+        performSelector(inBackground: #selector(fetchImages), with: nil)
+        //tableview.reloadData is called on the main thread
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+
+        // iOS recommended styling of Navigation bar title
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    //Function to fetch images
+    @objc func fetchImages() {
         
         // Default implementation to access file system in Swift code
         let fm = FileManager.default
@@ -38,8 +51,6 @@ class ViewController: UITableViewController {
         
         fileNameArray.sort()
         
-        // iOS recommended styling of Navigation bar title
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     //This method implementation is compulsury when UITableViewController is implementated class.

@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     //Declaration of all variables
     var scoreLabel : UILabel!
     var cluesLabel : UILabel!
@@ -20,12 +19,18 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
+    //New vars for string handling.
+    var clueString = ""
+    var solutionString = ""
+    var letterBits = [String]()
+    
     //Whenever score var is updated the score label will also update with didSet
     var score = 0 {
         didSet {
             scoreLabel.text = "Score : \(score)"
         }
     }
+    
     var level = 1
     
     //LoadView function is overridden.
@@ -178,9 +183,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Method call to load the level.`
-        loadLevel()
-        
+        //Method call to load the level in background thread.
+        performSelector(inBackground: #selector(loadLevel), with: nil)
+
     }
     
     //Selector function when any of 20 letter buttons is pressed.
@@ -240,23 +245,21 @@ class ViewController: UIViewController {
         
         level += 1
         solutions.removeAll(keepingCapacity: true)
-
+        
+        //Loadlevel function called to load the next level
         loadLevel()
 
         for btn in letterButtons {
             btn.isHidden = false
         }
-        
     }
-    
 
-    
     //Load level will be called when starting app and to goto next level.
     //As per the fixed format of data within txt file. Relevant data is separated as required.
-    func loadLevel() {
-        var clueString = ""
-        var solutionString = ""
-        var letterBits = [String]()
+    @objc func loadLevel() {
+        clueString = ""
+        solutionString = ""
+        letterBits = []
         
         //Levels are loaded from external files. 2 files are copied to project level 1 and level 2.
         if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
@@ -284,12 +287,18 @@ class ViewController: UIViewController {
                 }
             }
         }
+        letterBits.shuffle()
+        
+        //Updating screen tasks is taken on the Main thread.
+        performSelector(onMainThread: #selector(updateScreen), with: nil, waitUntilDone: false)
+
+    }
+    
+    //Selector function for the Main thread.
+    @objc func updateScreen() {
         
         cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
         answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        letterBits.shuffle()
-        
         if letterBits.count == letterButtons.count {
             for i in 0 ..< letterButtons.count {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
