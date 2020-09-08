@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         //Right and left navigation bar items are declared and selector functions are called.
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(dataAlert))
