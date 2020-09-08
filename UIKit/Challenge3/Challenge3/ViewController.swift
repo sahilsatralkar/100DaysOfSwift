@@ -121,14 +121,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Method to load words from words.txt file
-        loadWordsFromFile()
+        //Method to load words from words.txt file. Done on background thread
+        performSelector(inBackground: #selector(loadWordsFromFile), with: nil)
+        
         //Method to load a level and start game
-        loadLevel()
+        
+        performSelector(onMainThread: #selector(loadLevel), with: nil, waitUntilDone: false)
+
         
     }
     
-    func loadWordsFromFile() {
+    @objc func loadWordsFromFile() {
         
         //words.txt file is loaded from bundle.
         if let levelFileURL = Bundle.main.url(forResource: "words", withExtension: "txt") {
@@ -193,7 +196,7 @@ class ViewController: UIViewController {
     }
     
     //Function to load a new level.
-    func loadLevel(){
+    @objc func loadLevel(){
         
         //all elements are shuffled in array.
         wordsArrayFromFile.shuffle()
