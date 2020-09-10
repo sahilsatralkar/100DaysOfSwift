@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C01B9FC25092FB2003AD135 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C01B9FB25092FB2003AD135 /* PersonCell.swift */; };
+		1C01B9FE250A65E1003AD135 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C01B9FD250A65E1003AD135 /* Person.swift */; };
 		1CE256982507A7520035F80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE256972507A7520035F80D /* AppDelegate.swift */; };
 		1CE2569A2507A7520035F80D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE256992507A7520035F80D /* SceneDelegate.swift */; };
 		1CE2569C2507A7520035F80D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2569B2507A7520035F80D /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C01B9FB25092FB2003AD135 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		1C01B9FD250A65E1003AD135 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		1CE256942507A7520035F80D /* Project10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE256972507A7520035F80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE256992507A7520035F80D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				1CE256972507A7520035F80D /* AppDelegate.swift */,
+				1C01B9FD250A65E1003AD135 /* Person.swift */,
 				1CE256992507A7520035F80D /* SceneDelegate.swift */,
 				1CE2569B2507A7520035F80D /* ViewController.swift */,
+				1C01B9FB25092FB2003AD135 /* PersonCell.swift */,
 				1CE2569D2507A7520035F80D /* Main.storyboard */,
 				1CE256A02507A7580035F80D /* Assets.xcassets */,
 				1CE256A22507A7580035F80D /* LaunchScreen.storyboard */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C01B9FE250A65E1003AD135 /* Person.swift in Sources */,
 				1CE2569C2507A7520035F80D /* ViewController.swift in Sources */,
 				1CE256982507A7520035F80D /* AppDelegate.swift in Sources */,
+				1C01B9FC25092FB2003AD135 /* PersonCell.swift in Sources */,
 				1CE2569A2507A7520035F80D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP6WDMAW63;
 				INFOPLIST_FILE = Project10/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HP6WDMAW63;
 				INFOPLIST_FILE = Project10/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
