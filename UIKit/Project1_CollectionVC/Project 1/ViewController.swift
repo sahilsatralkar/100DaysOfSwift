@@ -29,8 +29,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
             self.collectionView.reloadData()
         }
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-
+     
     }
     
     //Function to fetch images
