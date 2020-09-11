@@ -22,18 +22,18 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         title = "Storm viewer"
         
         //Fetching images task is sent to background thread.
-        performSelector(inBackground: #selector(fetchImages), with: nil)
+        //performSelector(inBackground: #selector(fetchImages), with: nil)
        
+        fetchImages()
         //Sent collection reload data to main thread
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             self.collectionView.reloadData()
-        }
-        
+        //}
      
     }
     
     //Function to fetch images
-    @objc func fetchImages() {
+     func fetchImages() {
         
         // Default implementation to access file system in Swift code
         let fm = FileManager.default

@@ -104,7 +104,7 @@ class ViewController: UITableViewController {
             //performSelector(onMainThread: #selector(tableView.reloadData), with: nil, waitUntilDone: false)
             //tableView.reloadData()
             
-            //Temporary fix for reloadData because above code of performSelector is not working.
+            // reloadData sent to main thread
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
