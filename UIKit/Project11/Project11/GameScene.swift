@@ -30,6 +30,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    let ballNamesArray = ["ballBlue", "ballCyan","ballRed","ballGreen","ballGrey","ballPurple","ballYellow"]
+    var numberOfBalls = 0
+    
     override func didMove(to view: SKView) {
         
         //Create background from SKSpriteNode and add as child
@@ -87,6 +90,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     //Creating box shaped with random colors.
                     let size = CGSize(width: Int.random(in: 16...128), height: 16)
                     let box = SKSpriteNode(color: UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1), size: size)
+                    box.name = "pin"
                     //Add random rotation to box
                     box.zRotation = CGFloat.random(in: 0...3)
                     box.position = location
@@ -99,17 +103,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                     
                 //If not in edit mode. Create free falling balls.
-                else {
+                else if (numberOfBalls <= 5) {
                     //Create new ball SKSprikeNode and its peoperties.
-                    let ball = SKSpriteNode(imageNamed: "ballRed")
+                    let randomElement = Int.random(in: 0...6)
+                    let ball = SKSpriteNode(imageNamed: ballNamesArray[randomElement])
                     ball.name = "ball"
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                     ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
                     //restitution is bounciness of ball 1 being max.
                     ball.physicsBody?.restitution = 0.8
-                    ball.position = location
+                    ball.position = CGPoint(x: location.x, y: 650)
                     //add as child.
                     addChild(ball)
+                    numberOfBalls += 1
                 }
             }
         }
@@ -170,9 +176,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == "good" {
             destroy(ball: ball)
             score += 1
+            numberOfBalls -= 1
         } else if object.name == "bad" {
             destroy(ball: ball)
             score -= 1
+        } else if object.name == "pin" {
+            destroy (ball:ball)
+            destroy(ball: object)
         }
     }
     
