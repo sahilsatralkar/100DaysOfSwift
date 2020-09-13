@@ -19,6 +19,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         //Left bar button item for navigation bar created with selector function
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        //Create UserDefaults object
+        let defaults = UserDefaults.standard
+        //Load people from UserDefaults if it exists.
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                //With JSONDecoder convert [Person] and assign to people.
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("Failed to load people")
+            }
+        }
+        
+        
     }
     
     //Function is called when user clicks on add button.
@@ -81,6 +96,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
                 guard let newName = ac?.textFields?[0].text else { return }
                 person.name = newName
+                //Save method called before reload
+                self?.save()
                 self?.collectionView.reloadData()
             })
             self?.present(ac, animated: true)
@@ -90,6 +107,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         ac.addAction(UIAlertAction(title: "Delete", style: .default) { [weak self] _ in
             self?.people.remove(at: indexPath.row)
             
+            //Save method called before reload
+            self?.save()
             self?.collectionView.reloadData()
         })
         
@@ -114,6 +133,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let person = Person(name: "unknown", image: imageName)
         people.append(person)
         
+        //Save method called before reload
+        save()
         //Reload data in view.
         collectionView.reloadData()
         
@@ -126,6 +147,18 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         //return path[0]
         return paths[0]
+        
+    }
+    
+    //Save function will Encode people with JSONEncode before savig it to UserDefaults
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        } else {
+            print("Failed to save people")
+        }
         
     }
 }

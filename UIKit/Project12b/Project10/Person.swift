@@ -9,7 +9,8 @@
 import UIKit
 
 //Custom class inherits the most basic NSObject class. Used to store collection properties
-class Person: NSObject {
+//Class also confirms to Codable protocol
+class Person: NSObject, Codable {
     
     var name : String
     var image : String
