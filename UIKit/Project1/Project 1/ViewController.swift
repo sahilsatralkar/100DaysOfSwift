@@ -14,24 +14,28 @@ class ViewController: UITableViewController {
     var fileNameArray = [String]()
     var position = Int()
     var rowCount = 0
+    var viewCount = [Int]()
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title is the keyword to assign title label text in the Navigation bar at top
         title = "Storm viewer"
-        
-        //Fetching images task is sent to background thread.
-        performSelector(inBackground: #selector(fetchImages), with: nil)
-        //tableview.reloadData is called on the main thread
-        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
-
         // iOS recommended styling of Navigation bar title
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Fetching images task 
+        fetchImages()
+        
+        //reloadData is called
+        tableView.reloadData()
+        
+        
     }
     
     //Function to fetch images
-    @objc func fetchImages() {
+    func fetchImages() {
         
         // Default implementation to access file system in Swift code
         let fm = FileManager.default
@@ -46,6 +50,12 @@ class ViewController: UITableViewController {
             if item.hasPrefix("nssl") {
                 fileNameArray.append(item)
                 rowCount += 1
+                
+                if let tempViewCount = defaults.object(forKey: "viewCount") as? [Int] {
+                    viewCount = tempViewCount
+                } else {
+                    viewCount.append(0)
+                }
             }
         }
         
@@ -64,6 +74,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FileNameRow", for: indexPath)
         cell.textLabel?.text = "Image \(indexPath.row + 1)"
+        cell.detailTextLabel?.text = "Views : \(viewCount[indexPath.row])"
+        
         return cell
     }
     
@@ -77,14 +89,23 @@ class ViewController: UITableViewController {
             vc.selectedImage = fileNameArray[indexPath.row]
             vc.fileArrayCount = fileNameArray.count
             vc.position = indexPath.row
+            viewCount[indexPath.row] += 1
+            
+            //Save the values in UserDefaults.
+            defaults.set(viewCount, forKey: "viewCount")
+            
             // 3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
+            
+            //reloadData is called
+            self.tableView.reloadData()
+            
+            
         } else {
             print("View controller not found")
         }
         
     }
-    
     
 }
 

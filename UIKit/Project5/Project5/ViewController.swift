@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
     //Array to store words guessed by user from 1 word selected in title.
     var usedWords = [String]()
     
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,12 @@ class ViewController: UITableViewController {
         if allWords.isEmpty {
             allWords = ["silkworm"]
         }
+        
+        
+    
+
+        
+        
         //This will do initial game loading
         startGame()
     }
@@ -43,8 +50,20 @@ class ViewController: UITableViewController {
     //This function will set the navigation bar tile to a random word from the allwords array.
     func startGame() {
         
-        title = allWords.randomElement()
-        usedWords.removeAll(keepingCapacity: true)
+        
+        if let tempTitleWord = defaults.string(forKey: "titleWord") {
+            title = tempTitleWord
+        } else {
+            title = allWords.randomElement()
+            defaults.set(title, forKey: "titleWord")
+        }
+        if let tempUsedWords = defaults.object(forKey: "usedWords") as? [String] {
+            usedWords = tempUsedWords
+        } else {
+            usedWords.removeAll(keepingCapacity: true)
+            defaults.set(usedWords, forKey: "usedWords")
+        }
+
         tableView.reloadData()
     }
     
@@ -53,6 +72,8 @@ class ViewController: UITableViewController {
         
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
+        //
+        save()
         tableView.reloadData()
     }
     
@@ -87,8 +108,10 @@ class ViewController: UITableViewController {
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
                     
+                    usedWords.insert(answer, at: 0)
+                    //
+                    save()
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
                     
@@ -170,6 +193,14 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = usedWords[indexPath.row]
         
         return cell
+    }
+    
+    
+    func save(){
+        let titleText = title
+        defaults.set(titleText, forKey: "titleWord")
+        defaults.set(usedWords, forKey: "usedWords")
+        
     }
     
 }

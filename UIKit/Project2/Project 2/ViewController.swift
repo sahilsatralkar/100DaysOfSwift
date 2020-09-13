@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     var questionCounter = 0
     
     var flagsArray = [Int]()
+    var highScore = -11
+    
+    //Create new UserDefaults object
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +44,15 @@ class ViewController: UIViewController {
         //Internal function called which will display the first screen
         askQuestion(uiAlert: nil)
         
+        //Fetch values from userDefaults if it exists or create new key.
+        if let tempHighScores = defaults.object(forKey: "highScore") as? Int {
+            highScore = tempHighScores
+        } else {
+            
+            defaults.set(-11, forKey: "highScore")
+        }
+        
     }
-    
-    
     
     //This is a common IBAction for all 3 buttons/flags in screen.
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -62,9 +72,10 @@ class ViewController: UIViewController {
             //Present the alert
             self.present(ac, animated: true)
             
+            
         }
-        //All 3 buttons are assigned Tag values as 0,1 & 3 respectively in Main.storyboard, Attributes inspector
-        //This condition is true if the user click on the correct flag.
+            //All 3 buttons are assigned Tag values as 0,1 & 3 respectively in Main.storyboard, Attributes inspector
+            //This condition is true if the user click on the correct flag.
         else if sender.tag == answerSelector {
             
             //score variable is updated
@@ -81,7 +92,7 @@ class ViewController: UIViewController {
             self.present(ac, animated: true)
             
         }
-        // This condition is true if the user clicks on the wrong flag
+            // This condition is true if the user clicks on the wrong flag
         else {
             
             //score variable is updated
@@ -151,10 +162,17 @@ class ViewController: UIViewController {
             
         }
             
-        else {
-            //If the number of questions answered is more than 10 than Final score displayed on Navigation bar label.
-            title = "Final Score:\(score)"
+        else
+        {
+            //Condition to check if it is a new high score then give a new message. Update the value in userDefaults
+            if (score > highScore) {
+                title = "New Highest Score:\(score)"
+                defaults.set(score, forKey: "highScore")
+            }
+            else {
+                title = "Final Score:\(score)"
             
+            }
         }
         
     }
