@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Class for reusable cell in table containing IBOutlets
 class TableViewCell: UITableViewCell {
 
     @IBOutlet var imageLabel: UILabel!

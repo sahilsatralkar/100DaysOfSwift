@@ -32,8 +32,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 print("Failed to load people")
             }
         }
-        
-        
     }
     
     //Function is called when user clicks on add button.
@@ -74,6 +72,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         cell.imageView.layer.borderWidth = 2
         cell.imageView.layer.cornerRadius = 3
         cell.layer.cornerRadius = 7
+        
         
         return cell
     }
@@ -119,6 +118,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.editedImage] as? UIImage else { return }
+        
         
         //UUID will create a unique file name id.
         let imageName = UUID().uuidString

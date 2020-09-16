@@ -28,11 +28,11 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewImage))
         
         
-        //Load people from UserDefaults if it exists.
+        //Load people from ImageDataArray if it exists.
         if let tempImageDataArray = defaults.object(forKey: "ImageDataArray") as? Data {
             let jsonDecoder = JSONDecoder()
             do {
-                //With JSONDecoder convert [Person] and assign to people.
+                //With JSONDecoder convert [ImageData] and assign to imageDataArray.
                 imageDataArray = try jsonDecoder.decode([ImageData].self, from: tempImageDataArray)
                 imageDataCount = imageDataArray.count
                 
@@ -44,6 +44,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         
     }
     
+    //Selector function for Left navigation bar button
     @objc func addNewImage() {
         
         //Image picker object is created
@@ -54,14 +55,16 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.sourceType = .camera
         }
-        //assign the picker delegate theview controller and present picker.
+        //assign the picker delegate to the view controller and present picker.
         picker.delegate = self
         present(picker, animated: true)
         
     }
     
+    //Function is auto called internally by UI PickerImageController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        //fetch the image from info
         guard let image = info[.editedImage] as? UIImage else { return }
         
         //UUID will create a unique file name id.
@@ -72,7 +75,9 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
         }
+        //Update counter
         imageDataCount += 1
+        //Create a ImageData object with new custom property values and append to array.
         let imageData = ImageData(imageFileName: imageName, imageCellName: "Image \(imageDataCount)", viewCount: 0, caption: "")
         imageDataArray.append(imageData)
         
@@ -81,11 +86,12 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         //Reload data in view.
         tableView.reloadData()
         
+        //Dismiss picker controller.
         dismiss(animated: true)
         
     }
     
-    //Custom function to get file path url from filemanager.
+    //Custom function to get file path url for documents from filemanager.
     func getDocumentsDirectory () -> URL {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -94,7 +100,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         
     }
     
-    //Save function will Encode people with JSONEncode before saving it to UserDefaults
+    //Save function will Encode imageDataArray with JSONEncoder before saving it to UserDefaults
     func save() {
         let jsonEncoder = JSONEncoder()
         if let savedData = try? jsonEncoder.encode(imageDataArray) {
@@ -105,15 +111,18 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     
+    //Compulsary implementation for UITableViewController. Retuen the number of rows in table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imageDataArray.count
     }
     
+    //Compulsory implementation of UITableVieController. Assign datasource data to each reusable cell.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellReuseID", for: indexPath) as? TableViewCell else {
             fatalError("Unable to dequeue TableViewCell.")
         }
 
+        //Assign image and views counter to cell to display it.
         cell.imageLabel.text = imageDataArray[indexPath.row].imageCellName
         cell.imageViewCount.text = "Views : \(imageDataArray[indexPath.row].viewCount)"
         return cell
@@ -126,7 +135,9 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         // 1: try loading the controller with unique identifier and typecasting it to be SecondViewController.
         if let vc = storyboard?.instantiateViewController(withIdentifier: "SecondScreen") as? SecondViewController {
             
+            //Update views counter
             imageDataArray[indexPath.row].viewCount += 1
+            //save data in UserDefaults with this function.
             save()
             vc.imageDataArraySVC = imageDataArray
             vc.indexRow = indexPath.row

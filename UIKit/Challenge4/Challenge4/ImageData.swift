@@ -8,6 +8,7 @@
 
 import UIKit
 
+//New class corresponding to the Data required by Image and with Codable protocol to enabel JSON encoding/decoding
 class ImageData: NSObject, Codable {
     
     var imageFileName : String
