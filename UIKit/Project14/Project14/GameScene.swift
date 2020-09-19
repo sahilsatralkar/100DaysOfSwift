@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     var slots = [WhackSlot]()
     var gameScore : SKLabelNode!
+    var finalScore : SKLabelNode!
     
     var popupTime = 0.85
     var numRounds = 0
@@ -37,7 +38,6 @@ class GameScene: SKScene {
         gameScore.fontSize = 48
         addChild(gameScore)
         
-        
         for i in 0..<5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 410))}
         for i in 0..<4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 320))}
         for i in 0..<5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 230))}
@@ -48,7 +48,6 @@ class GameScene: SKScene {
             self?.createEnemy()
             
         }
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,23 +65,21 @@ class GameScene: SKScene {
             if !whackSlot.isVisible { continue }
             if whackSlot.isHit {continue}
             whackSlot.hit()
-
             
             if node.name == "charFriend" {
-                //
                 
                 score -= 5
+                
                 run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+                
             }else if node.name == "charEnemy" {
-                //
-               
+                
                 whackSlot.charNode.xScale = 0.85
                 whackSlot.charNode.yScale = 0.85
                 
                 score += 1
-                
                 run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
-
+                
             }
             
         }
@@ -107,10 +104,20 @@ class GameScene: SKScene {
                 slot.hide()
             }
             
+            run(SKAction.playSoundFileNamed("gameOver.caf", waitForCompletion: false))
+            
             let gameOver = SKSpriteNode(imageNamed: "gameOver")
             gameOver.position = CGPoint(x: 512, y: 384)
             gameOver.zPosition = 1
             addChild(gameOver)
+            
+            finalScore = SKLabelNode(fontNamed: "Chalkduster")
+            finalScore.text = "Final Score : \(score)"
+            finalScore.zPosition = 1
+            finalScore.position = CGPoint(x: 512, y: 250)
+            finalScore.fontSize = 48
+            addChild(finalScore)
+            
             return
         }
         
@@ -123,7 +130,6 @@ class GameScene: SKScene {
         if Int.random(in: 0...12) > 10 { slots[3].show(hideTime: popupTime)  }
         if Int.random(in: 0...12) > 11 { slots[4].show(hideTime: popupTime)  }
         
-        
         let minDelay = popupTime / 2.0
         let maxDelay = popupTime * 2
 
@@ -135,6 +141,6 @@ class GameScene: SKScene {
             
         }
     }
-    
-    
 }
+
+

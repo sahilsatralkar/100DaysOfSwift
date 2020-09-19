@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C16308425165FB100332C07 /* gameOver.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C16308325165FB100332C07 /* gameOver.caf */; };
+		1C163087251664CC00332C07 /* mudParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C163086251664CB00332C07 /* mudParticles.sks */; };
+		1C16308C25169BC800332C07 /* smokeEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C16308B25169BC800332C07 /* smokeEmitter.sks */; };
 		1CC83EB825134D3800FA07A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC83EB725134D3800FA07A8 /* AppDelegate.swift */; };
 		1CC83EBA25134D3800FA07A8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CC83EB925134D3800FA07A8 /* GameScene.sks */; };
 		1CC83EBE25134D3800FA07A8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC83EBD25134D3800FA07A8 /* GameScene.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C16308325165FB100332C07 /* gameOver.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.caf; sourceTree = "<group>"; };
+		1C163086251664CB00332C07 /* mudParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mudParticles.sks; path = ../../Project11/Project11/mudParticles.sks; sourceTree = "<group>"; };
+		1C16308B25169BC800332C07 /* smokeEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeEmitter.sks; sourceTree = "<group>"; };
 		1CC83EB425134D3800FA07A8 /* Project14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CC83EB725134D3800FA07A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CC83EB925134D3800FA07A8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				1CC83EC925134D3D00FA07A8 /* Info.plist */,
 				1CC83ED025134E6300FA07A8 /* whack.caf */,
 				1CC83ECF25134E6300FA07A8 /* whackBad.caf */,
+				1C16308325165FB100332C07 /* gameOver.caf */,
+				1C16308B25169BC800332C07 /* smokeEmitter.sks */,
+				1C163086251664CB00332C07 /* mudParticles.sks */,
 			);
 			path = Project14;
 			sourceTree = "<group>";
@@ -106,7 +115,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sahil Satralkar";
 				TargetAttributes = {
 					1CC83EB325134D3800FA07A8 = {
@@ -137,10 +146,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C16308425165FB100332C07 /* gameOver.caf in Resources */,
 				1CC83ED125134E6300FA07A8 /* whackBad.caf in Resources */,
 				1CC83EC325134D3800FA07A8 /* Main.storyboard in Resources */,
 				1CC83EBA25134D3800FA07A8 /* GameScene.sks in Resources */,
 				1CC83EC525134D3D00FA07A8 /* Assets.xcassets in Resources */,
+				1C163087251664CC00332C07 /* mudParticles.sks in Resources */,
+				1C16308C25169BC800332C07 /* smokeEmitter.sks in Resources */,
 				1CC83EC825134D3D00FA07A8 /* LaunchScreen.storyboard in Resources */,
 				1CC83ED225134E6300FA07A8 /* whack.caf in Resources */,
 			);
@@ -208,6 +220,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -268,6 +281,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
