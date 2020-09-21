@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "responseInfo": {
+      "status": 200,
+      "developerMessage": "OK",
+      "userMessage": "",
+      "errorCode": "",
+      "moreInfo": ""
+    },
+    "requestInfo": {
+      "apiVersion": 1,
+      "resource": "countries"
+    }
+  },
+  "results": [
+    {
+      "countryName": "India",
+      "population": 1210854977,
+      "area": 3287263,
+      "capitalCity": "New Delhi",
+      "currency": "Rupees",
+      "summary": "India (Hindi: Bhārat), officially the Republic of India (Hindi: Bhārat Gaṇarājya), is a country in South Asia. It is the second-most populous country, the seventh-largest country by land area, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west;China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand and Indonesia."
+    },
+    {
+      "countryName": "China",
+      "population": 1400050000,
+      "area": 9596961,
+      "capitalCity": "Beijing",
+      "currency": "Renminbi",
+      "summary": "China,officially the People's Republic of China (PRC), is a socialist state in East Asia. It is the world's most populous country, with a population of around 1.4 billion in 2019. Covering approximately 9.6 million square kilometres (3.7 million mi2), it is the world's third or fourth-largest country by area. Governed solely by the Chinese Communist Party (CCP), the state exercises jurisdiction over 22 provinces, five autonomous regions, four direct-controlled municipalities (Beijing, Tianjin, Shanghai, and Chongqing), and the special administrative regions of Hong Kong and Macau."
+    },
+    {
+      "countryName": "Japan",
+      "population": 125960000,
+      "area": 377975,
+      "capitalCity": "Tokyo",
+      "currency": "Yen",
+      "summary": "Japan is an island country of East Asia in the northwest Pacific Ocean. It borders the Sea of Japan to the west and extends from the Sea of Okhotsk in the north to the East China Sea and Taiwan in the south. Japan is part of the Pacific Ring of Fire and comprises an archipelago of 6,852 islands covering 377,975 square kilometers (145,937 sq mi); its five main islands, from north to south, are Hokkaido, Honshu, Shikoku, Kyushu, and Okinawa. Tokyo is the country's capital and largest city; other major cities include Osaka and Nagoya."
+    },
+    {
+      "countryName": "France",
+      "population": 67081000,
+      "area": 640679,
+      "capitalCity": "Paris",
+      "currency": "Euro",
+      "summary": "France is a country consisting of metropolitan France in Western Europe and several overseas regions and territories.The metropolitan area of France extends from the Mediterranean Sea to the English Channel and the North Sea, and from the Rhine to the Atlantic Ocean. It borders Belgium, Luxembourg and Germany to the northeast, Switzerland, Monaco, and Italy to the east, and Andorra and Spain to the south. The overseas territories include French Guiana in South America and several islands in the Atlantic, Pacific and Indian oceans. The country's 18 integral regions (five of which are situated overseas) span a combined area of 643,801 square kilometres (248,573 sq mi) and a total population of 67.07 million (as of May 2020). France is a unitary semi-presidential republic with its capital in Paris, the country's largest city and main cultural and commercial centre. Other major urban areas include Lyon, Marseille, Toulouse, Bordeaux, Lille and Nice. France, including its overseas territories, has the most time zones of any country, with a total of 12."
+    },
+    {
+      "countryName": "Poland",
+      "population": 38383000,
+      "area": 312696,
+      "capitalCity": "Warsaw",
+      "currency": "Polish zloty",
+      "summary": "Poland is a country located in Central Europe. It is divided into 16 administrative subdivisions, covering an area of 312,696 square kilometres (120,733 sq mi), and has a largely temperate seasonal climate. With a population of nearly 38.5 million people, Poland is the fifth most populous member state of the European Union. Poland's capital and largest metropolis is Warsaw. Other major cities include Kraków, Łódź, Wrocław, Poznań, Gdańsk, and Szczecin."
+    },
+    {
+      "countryName": "Chile",
+      "population": 17574003,
+      "area": 756096,
+      "capitalCity": "Santiago",
+      "currency": "Peso",
+      "summary": "Chile officially the Republic of Chile is a country in western South America. It occupies a long, narrow strip of land between the Andes to the east and the Pacific Ocean to the west. Chile covers an area of 756,096 square kilometres (291,930 sq mi) and has a population of 17.5 million as of 2017. The capital and largest city is Santiago and the national language is Spanish."
+    },
+    {
+      "countryName": "Canada",
+      "population": 37971020,
+      "area": 9984670,
+      "capitalCity": "Ottawa",
+      "currency": "Canadian dollar",
+      "summary": "Canada is a country in the northern part of North America. Its ten provinces and three territories extend from the Atlantic to the Pacific and northward into the Arctic Ocean, covering 9.98 million square kilometres (3.85 million square miles), making it the world's second-largest country by total area. Its southern and western border with the United States, stretching 8,891 kilometres (5,525 mi), is the world's longest bi-national land border. Canada's capital is Ottawa, and its three largest metropolitan areas are Toronto, Montreal, and Vancouver."
+    },
+    {
+      "countryName": "Nigeria",
+      "population": 206630269,
+      "area": 923769,
+      "capitalCity": "Abuja",
+      "currency": "Naira",
+      "summary": "Nigeria officially the Federal Republic of Nigeria, is a sovereign country located in West Africa bordering Niger in the north, Chad in the northeast, Cameroon in the east, and Benin in the west. Its southern coast is on the Gulf of Guinea in the Atlantic Ocean. Nigeria is a federal republic comprising 36 states with 774 local Government. Including the Federal Capital Territory located in Abuja."
+    },
+    {
+      "countryName": "Mongolia",
+      "population": 3353470,
+      "area": 1566000,
+      "capitalCity": "Ulaanbaatar",
+      "currency": "Togrog",
+      "summary": "Mongolia, Mongolian: transcription: Mongol Uls, Traditional Mongolian, transliteration: Mongγol ulus) is a landlocked country in East Asia. Its area is roughly equivalent with the historical territory of Outer Mongolia, and that term is sometimes used to refer to the current state. It is sandwiched between Russia to the north and China to the south, where it neighbours the Inner Mongolia Autonomous Region. Mongolia does not share a border with Kazakhstan, although only 37 kilometres (23 mi) separate them."
+    },
+    {
+      "countryName": "Madagascar",
+      "population": 587041,
+      "area": 26262313,
+      "capitalCity": "Antananarivo",
+      "currency": "Malagasy ariary",
+      "summary": "Madagascar officially the Republic of Madagascar (Malagasy: Repoblikan'i Madagasikara Malagasy pronunciation: [republiˈkʲan madaɡasˈkʲarə̥]; French: République de Madagascar), and previously known as the Malagasy Republic, is an island country in the Indian Ocean, approximately 400 kilometres (250 miles) off the coast of East Africa. At 592,800 square kilometres (228,900 sq mi) Madagascar is the world's second-largest island country. The nation comprises the island of Madagascar (the fourth-largest island in the world) and numerous smaller peripheral islands. Following the prehistoric breakup of the supercontinent Gondwana, Madagascar split from the Indian subcontinent around 88 million years ago, allowing native plants and animals to evolve in relative isolation. Consequently, Madagascar is a biodiversity hotspot; over 90% of its wildlife is found nowhere else on Earth. The island's diverse ecosystems and unique wildlife are threatened by the encroachment of the rapidly growing human population and other environmental threats."
+    }
+  ]
+}
