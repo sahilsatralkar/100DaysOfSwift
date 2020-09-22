@@ -23,8 +23,7 @@ class SecondViewController: UIViewController {
             // title is the keyword to assign title label text in the Navigation bar at top
             title = "Image \(position + 1) of \(fileArrayCount)"
         }
-        //To disable the large Navigation bar text label
-        navigationItem.largeTitleDisplayMode = .never
+        
     }
     
     //Method will make the Navigation bar at top disappear from the top when user taps on the image
