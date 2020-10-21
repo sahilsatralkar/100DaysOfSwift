@@ -24,6 +24,7 @@
 		1C86422E253DC30300094367 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C864223253DC30200094367 /* whack.caf */; };
 		1C86422F253DC30300094367 /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C864224253DC30200094367 /* swoosh1.caf */; };
 		1C864230253DC30300094367 /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C864225253DC30200094367 /* wrong.caf */; };
+		1CF5ABF62540A2BC00AC451D /* text_gameover.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5ABF52540A2BC00AC451D /* text_gameover.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1C864223253DC30200094367 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		1C864224253DC30200094367 /* swoosh1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh1.caf; sourceTree = "<group>"; };
 		1C864225253DC30200094367 /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
+		1CF5ABF52540A2BC00AC451D /* text_gameover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_gameover.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				1C86421B253DC2FF00094367 /* swoosh3.caf */,
 				1C864223253DC30200094367 /* whack.caf */,
 				1C864225253DC30200094367 /* wrong.caf */,
+				1CF5ABF52540A2BC00AC451D /* text_gameover.png */,
 			);
 			path = Project23;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				1C864229253DC30200094367 /* launch.caf in Resources */,
 				1C864228253DC30200094367 /* sliceHitEnemy.sks in Resources */,
 				1C864212253DC28A00094367 /* Assets.xcassets in Resources */,
+				1CF5ABF62540A2BC00AC451D /* text_gameover.png in Resources */,
 				1C86422A253DC30200094367 /* explosion.caf in Resources */,
 				1C864227253DC30200094367 /* sliceHitBomb.sks in Resources */,
 				1C86422B253DC30300094367 /* sliceFuse.sks in Resources */,
