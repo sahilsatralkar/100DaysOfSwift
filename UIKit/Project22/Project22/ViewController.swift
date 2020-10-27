@@ -80,6 +80,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     //Internal function called from CLLocationManagerDelegate. Will be called whenever a beacon is in range.
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
+        
+        
+        
         //Fetch the first beacon from the array of beacons.
         if let beacon = beacons.first {
                         
