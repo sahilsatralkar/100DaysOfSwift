@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eif-B0-uqg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="9Si-5q-L3f">
+            <objects>
+                <collectionViewController id="eif-B0-uqg" customClass="ViewController" customModule="Challenge10" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RUR-hS-fQe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Av9-Tg-SoN">
+                            <size key="itemSize" width="50" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="30" minY="5" maxX="30" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="t8z-ZZ-1aX">
+                                <rect key="frame" x="30" y="5" width="110" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NsI-JH-yjU">
+                                    <rect key="frame" x="0.0" y="0.0" width="110" height="220"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="5tN-uz-Zjn">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="220"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="110" id="Ern-OG-IHH"/>
+                                                <constraint firstAttribute="height" constant="220" id="Jb9-Ji-xNR"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5tN-uz-Zjn" firstAttribute="centerY" secondItem="NsI-JH-yjU" secondAttribute="centerY" id="IZu-lE-PkW"/>
+                                        <constraint firstAttribute="bottom" secondItem="5tN-uz-Zjn" secondAttribute="bottom" id="Ipv-gD-qf8"/>
+                                        <constraint firstItem="5tN-uz-Zjn" firstAttribute="centerX" secondItem="NsI-JH-yjU" secondAttribute="centerX" id="Jw8-t3-PZt"/>
+                                        <constraint firstAttribute="trailing" secondItem="5tN-uz-Zjn" secondAttribute="trailing" id="cBj-NS-MQY"/>
+                                        <constraint firstItem="5tN-uz-Zjn" firstAttribute="top" secondItem="NsI-JH-yjU" secondAttribute="top" id="nKJ-Tx-PVl"/>
+                                        <constraint firstItem="5tN-uz-Zjn" firstAttribute="leading" secondItem="NsI-JH-yjU" secondAttribute="leading" id="sxt-A0-n1F"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="eif-B0-uqg" id="rBM-mD-4KT"/>
+                            <outlet property="delegate" destination="eif-B0-uqg" id="JQe-vx-mvJ"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EmK-BZ-5V8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-214" y="6"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZXs-n1-rrP">
+            <objects>
+                <viewController storyboardIdentifier="youwin" id="OI4-fU-CK6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Xe-B1-opo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swM-Gh-xFr">
+                                <rect key="frame" x="143.5" y="426.5" width="127" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="AVu-1c-RJA"/>
+                                    <constraint firstAttribute="height" constant="43" id="lSM-Rq-rho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6QB-Mu-3XM"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="swM-Gh-xFr" firstAttribute="centerX" secondItem="4Xe-B1-opo" secondAttribute="centerX" id="Xku-bY-XpN"/>
+                            <constraint firstItem="swM-Gh-xFr" firstAttribute="centerY" secondItem="4Xe-B1-opo" secondAttribute="centerY" id="lPK-eL-9i6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22C-hi-eDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cross" width="100" height="200"/>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
