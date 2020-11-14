@@ -2,7 +2,7 @@
 
 Projects on Hacking with Swift &amp; SwiftUI
 
-This repository contains the practice apps of @[Hacking With Swift](https://www.hackingwithswift/) by @[Paul Hudson](https://https://twitter.com/twostraws/)
+This repository contains the practice apps of @[Hacking With Swift](https://www.hackingwithswift.com/) by @[Paul Hudson](https://https://twitter.com/twostraws/)
 
 UIKit directory contains all my completed projects of 100 Days of Swift
 
