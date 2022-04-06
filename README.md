@@ -6,6 +6,6 @@ This repository contains the practice apps of @[Hacking With Swift](https://www.
 
 UIKit directory contains all my completed projects of 100 Days of Swift
 
-SwiftUI directory contains projects of 100 Days of SwiftUI
+SwiftUI directory contains projects upto Day 40 of 100 Days of SwiftUI
 
 I have included detailed comments in code so that it can be useful for someone learning Swift
