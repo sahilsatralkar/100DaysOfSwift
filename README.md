@@ -1,6 +1,6 @@
 # 100DaysOfSwift
 
-Projects on Hacking with Swift &amp; SwiftUI
+This directory has complete 100 Days of Swift and upto Day 40 of 100 Days of SwiftUI
 
 This repository contains the practice apps of @[Hacking With Swift](https://www.hackingwithswift.com/) by @[Paul Hudson](https://twitter.com/twostraws/)
 
